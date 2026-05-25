@@ -1,0 +1,1 @@
+Juego de cartas estilo roguelike inspirado en Balatro, desarrollado en React. Implementa mecánicas de póker, sistema de puntuación y comodines especiales.
