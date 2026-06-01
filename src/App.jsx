@@ -8,6 +8,7 @@ import Hand           from './components/Hand/Hand'
 import ScoreBoard     from './components/ScoreBoard/ScoreBoard'
 import LivesDisplay    from './components/LivesDisplay/LivesDisplay'
 import ActionButtons   from './components/ActionButtons/ActionButtons'
+import JokerPanel      from './components/JokerPanel/JokerPanel'
 // import GameBoard from './components/Game/GameBoard'
 
 function App() {
@@ -81,26 +82,11 @@ function App() {
     onRestart={() => { game.resetGame(); jokers.resetJokers(); tarot.resetTarot() }}
   />
   {/* Prueba de jokers */}
-<div style={{ marginTop: '1rem', borderTop: '1px solid white', paddingTop: '1rem' }}>
-  <p>Jokers activos: {jokers.active.length === 0 ? 'ninguno' : jokers.active.map(j => j.name).join(', ')}</p>
-  
-  {jokers.pending.length === 0 ? (
-    <button onClick={jokers.offerJokers}>Ofrecer jokers</button>
-  ) : (
-    <div>
-      <p>Elige un joker:</p>
-      {jokers.pending.map(j => (
-        <button
-          key={j.id}
-          onClick={() => jokers.chooseJoker(j.id)}
-          style={{ marginRight: '1rem' }}
-        >
-          {j.name} — {j.description}
-        </button>
-      ))}
-    </div>
-  )}
-</div>
+  <JokerPanel
+    activeJokers={jokers.active}
+    pendingJokers={jokers.pending}
+    onPickJoker={(joker) => jokers.chooseJoker(joker.id)}
+  />
 </div>
   )
 }
