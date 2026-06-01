@@ -44,7 +44,6 @@ function App() {
   return (
     <div className="game">
 
-      {/* Header: ronda | scorebar | vidas + mute */}
       <header className="game-header">
         <div className="game-header__round">
           <span className="game-header__eyebrow">Ronda</span>
@@ -62,7 +61,6 @@ function App() {
         </div>
       </header>
 
-      {/* Jokers */}
       <div style={{ marginTop: '16px' }}>
         <JokerPanel
           activeJokers={jokers.active}
@@ -71,7 +69,6 @@ function App() {
         />
       </div>
 
-      {/* Cartas — ocupan el espacio libre y quedan centradas */}
       <div style={{ flex: 1, display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', gap: '16px' }}>
         {game.handName && (
           <div className="game-hand-name">{game.handName}</div>
@@ -83,7 +80,6 @@ function App() {
         />
       </div>
 
-      {/* Botones pegados abajo */}
       <div style={{ paddingBottom: '180px' }}>
         <ActionButtons
           selectedCount={game.selected.length}

@@ -1,4 +1,3 @@
-//logica y definicion de los jokers disponibles en el juego, cada uno con su propia funcion de aplicacion al puntaje total o a la mano del jugador
 export const JOKERS = [
   {
     id: 'joker_multiplier',
@@ -15,13 +14,13 @@ export const JOKERS = [
   {
     id: 'joker_hearts',
     name: 'Rey de Corazones',
-    description: 'x1.5 si hay al menos una carta de corazones en la mano',
+    description: 'x1.5 si hay corazones en la mano',
     apply: (score, hand) => hand.some(c => c.suit === 'hearts') ? score * 1.5 : score,
   },
   {
     id: 'joker_face_cards',
     name: 'La Corte',
-    description: 'Suma 15 puntos por cada figura (J, Q, K) en la mano',
+    description: '+15 por cada figura (J, Q, K)',
     apply: (score, hand) => {
       const faces = hand.filter(c => ['J', 'Q', 'K'].includes(c.value))
       return score + faces.length * 15
@@ -36,7 +35,7 @@ export const JOKERS = [
   {
     id: 'joker_pairs_bonus',
     name: 'Coleccionista',
-    description: 'Suma 30 puntos por cada par en la mano seleccionada',
+    description: '+30 por cada par en la mano',
     apply: (score, hand) => {
       const counts = {}
       hand.forEach(c => { counts[c.value] = (counts[c.value] || 0) + 1 })

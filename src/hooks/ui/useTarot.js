@@ -1,44 +1,20 @@
 import { useState, useCallback } from 'react'
 import { TAROT_CARDS } from '../../data/tarot/tarotCards.js'
 
-// Probabilidad de que aparezca una tarot card al avanzar de ronda
-const TAROT_CHANCE = 0.3  
+const TAROT_CHANCE = 0.3
 
 export function useTarot() {
-  const [active, setActive] = useState(null)  // tarot card activa
+  const [active, setActive] = useState(null)
 
-  // Decide si aparece una tarot card
   const rollTarot = useCallback(() => {
     if (Math.random() > TAROT_CHANCE) return
-    const random = Math.floor(Math.random() * TAROT_CARDS.length)
-    setActive(TAROT_CARDS[random])
+    setActive(TAROT_CARDS[Math.floor(Math.random() * TAROT_CARDS.length)])
   }, [])
 
-  // Aplica el efecto de la tarot card al estado del juego y la descarta
-  const applyTarot = useCallback((gameState) => {
-    if (!active) return gameState
-    const newState = active.apply(gameState)
-    setActive(null)
-    return newState
-  }, [active])
+  const dismissTarot = useCallback(() => setActive(null), [])
+  const resetTarot   = useCallback(() => setActive(null), [])
 
-  // Descarta la tarot card sin aplicar efecto
-  const dismissTarot = useCallback(() => {
-    setActive(null)
-  }, [])
-
-  // Limpia al reiniciar partida
-  const resetTarot = useCallback(() => {
-    setActive(null)
-  }, [])
-
-  return {
-    active,
-    rollTarot,
-    applyTarot,
-    dismissTarot,
-    resetTarot,
-  }
+  return { active, rollTarot, dismissTarot, resetTarot }
 }
 
 export default useTarot

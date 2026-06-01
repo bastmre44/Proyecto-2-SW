@@ -1,13 +1,13 @@
 :root {
-  --carbon:   #1c1a25;
-  --carbon2:  #2b2836;
-  --panel:    rgba(43, 40, 54, 0.92);
-  --perla:    #dcd6e2;
-  --perla-muted: #9a93ab;
-  --malva:    #b07f9e;
-  --durazno:  #d7a584;
-  --teal:     #7fa3a0;
-  --border:   rgba(220, 214, 226, 0.12);
+  --carbon:        #1c1a25;
+  --carbon2:       #2b2836;
+  --panel:         rgba(43, 40, 54, 0.92);
+  --perla:         #dcd6e2;
+  --perla-muted:   #9a93ab;
+  --malva:         #b07f9e;
+  --durazno:       #d7a584;
+  --teal:          #7fa3a0;
+  --border:        rgba(220, 214, 226, 0.12);
   --border-accent: rgba(220, 214, 226, 0.22);
 }
 
@@ -33,7 +33,6 @@ body {
 
 button { font-family: inherit; cursor: pointer; }
 
-/* Contenedor central */
 .container {
   width: 100%;
   max-width: 1280px;
@@ -41,7 +40,6 @@ button { font-family: inherit; cursor: pointer; }
   padding: clamp(20px, 5vw, 72px);
 }
 
-/* ── Pantalla de juego ── */
 .game {
   display: flex;
   flex-direction: column;
@@ -54,13 +52,13 @@ button { font-family: inherit; cursor: pointer; }
   box-sizing: border-box;
 }
 
-/* Header: ronda | barra | vidas */
 .game-header {
   display: flex;
   align-items: center;
   justify-content: space-between;
   gap: 20px;
   flex-wrap: wrap;
+  width: 100%;
 }
 
 .game-header__round {
@@ -76,7 +74,6 @@ button { font-family: inherit; cursor: pointer; }
   letter-spacing: 4px;
   text-transform: uppercase;
   color: var(--perla-muted);
-  font-family: 'Segoe UI', system-ui, sans-serif;
 }
 
 .game-header__round-num {
@@ -86,46 +83,14 @@ button { font-family: inherit; cursor: pointer; }
   line-height: 1;
 }
 
-/* Cuerpo: cartas (izq/centro) + botones (der) */
-.game-body {
-  display: flex;
-  align-items: flex-end;
-  gap: 24px;
-  flex: 1;
-}
-
-.game-body__main {
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 12px;
-}
-
-.game-body__actions {
-  display: flex;
-  flex-direction: column;
-  align-items: stretch;
-  gap: 16px;
-  min-width: 160px;
-}
-
-/* Nombre de la mano detectada */
 .game-hand-name {
   font-size: 13px;
   font-weight: 700;
   letter-spacing: 3px;
   text-transform: uppercase;
   color: var(--teal);
-  font-family: 'Segoe UI', system-ui, sans-serif;
 }
 
-@media (max-width: 700px) {
-  .game-body { flex-direction: column; align-items: center; }
-  .game-body__actions { flex-direction: row; flex-wrap: wrap; justify-content: center; min-width: unset; }
-}
-
-/* Botón mute */
 .mute-btn {
   width: 36px;
   height: 36px;
