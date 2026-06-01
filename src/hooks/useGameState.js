@@ -116,6 +116,42 @@ function gameReducer(state, action) {
       }
     }
 
+    case 'APPLY_TAROT': {
+      const { tarotId } = action
+      switch (tarotId) {
+        case 'tarot_fool': {
+          const allIds = state.hand.map(c => c.id)
+          const { newHand: hand, remainingDeck: deck } = replaceCards(state.hand, allIds, state.deck)
+          return { ...state, hand, deck, selected: [] }
+        }
+        case 'tarot_magician':
+          return {
+            ...state,
+            hand: state.hand.map(c =>
+              state.selected.includes(c.id) ? { ...c, numericValue: c.numericValue * 2 } : c
+            ),
+          }
+        case 'tarot_wheel':
+          return { ...state, targetScore: Math.max(0, state.targetScore - 100) }
+        case 'tarot_star':
+          return {
+            ...state,
+            hand: state.hand.map(c =>
+              state.selected.includes(c.id) ? { ...c, suit: 'diamonds' } : c
+            ),
+          }
+        case 'tarot_strength':
+          return {
+            ...state,
+            hand: state.hand.map(c => ({ ...c, numericValue: c.numericValue + 1 })),
+          }
+        case 'tarot_hermit':
+          return { ...state, lives: Math.min(state.lives + 1, MAX_LIVES) }
+        default:
+          return state
+      }
+    }
+
     default:
       return state
   }
@@ -129,7 +165,8 @@ export function useGameState() {
   const toggleSelect = useCallback((id) => dispatch({ type: 'TOGGLE_SELECT', id }), [])
   const playHand = useCallback((activeJokers) => dispatch({ type: 'PLAY_HAND', activeJokers }), [])   
   const discard      = useCallback(() => dispatch({ type: 'DISCARD' }), [])
-  const skip         = useCallback(() => dispatch({ type: 'SKIP' }), [])
+  const skip       = useCallback(() => dispatch({ type: 'SKIP' }), [])
+  const applyTarot = useCallback((tarotId) => dispatch({ type: 'APPLY_TAROT', tarotId }), [])
 
   return {
     ...state,
@@ -139,6 +176,7 @@ export function useGameState() {
     playHand,
     discard,
     skip,
+    applyTarot,
   }
 }
 

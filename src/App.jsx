@@ -1,3 +1,4 @@
+import { useEffect, useRef } from 'react'
 import { useGameState } from './hooks/useGameState'
 import { useJokers }    from './hooks/useJokers'
 import { useTarot }     from './hooks/useTarot'
@@ -17,6 +18,14 @@ function App() {
   const jokers = useJokers()
   const tarot  = useTarot()
   const { muted, toggleMute } = useMusic(game.screen, game.difficulty)
+
+  const prevRound = useRef(game.round)
+  useEffect(() => {
+    if (game.screen === 'playing' && game.round > prevRound.current) {
+      tarot.rollTarot()
+    }
+    prevRound.current = game.round
+  }, [game.round, game.screen])
 
   if (game.screen === 'menu') {
     return <MainMenu onStart={game.startGame} muted={muted} onToggleMute={toggleMute} />
@@ -87,7 +96,7 @@ function App() {
 
       <TarotModal
         tarot={tarot.active}
-        onApply={() => tarot.applyTarot()}
+        onApply={() => { game.applyTarot(tarot.active.id); tarot.dismissTarot() }}
         onDismiss={tarot.dismissTarot}
       />
     </div>

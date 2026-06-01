@@ -20,6 +20,7 @@ function Hand({ cards = DUMMY_CARDS, selected = [], onSelect }) {
           key={card.id}
           card={card}
           selected={selected.includes(card.id)}
+          isSpecial={card.isSpecial}
           onClick={() => onSelect?.(card)}
         />
       ))}

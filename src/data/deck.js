@@ -3,7 +3,7 @@
 const SUITS = ['hearts', 'diamonds', 'clubs', 'spades'];
 
 const VALUES = [
-    { label: 'A', numericValue: 11 },
+    { label: 'A', numericValue: 11, isSpecial: true },
     { label: '2', numericValue: 2 },
     { label: '3', numericValue: 3 },
     { label: '4', numericValue: 4 },
@@ -28,6 +28,7 @@ export const createDeck = () => {
                 suit: suit,
                 value: value.label,
                 numericValue: value.numericValue,
+                isSpecial: value.isSpecial ?? false,
             });
         }
     }
