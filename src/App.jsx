@@ -4,7 +4,7 @@ import { useTarot }     from './hooks/useTarot'
 
 import MainMenu       from './components/Menu/MainMenu'
 import GameOverScreen from './components/GameOver/GameOverScreen'
-import CardComponent  from './components/Card/CardComponent'
+import Hand           from './components/Hand/Hand'
 // import GameBoard from './components/Game/GameBoard'
 
 function App() {
@@ -61,16 +61,11 @@ function App() {
   <p>Vidas: {game.lives}</p>
   <p>Cartas en mazo: {game.deck.length}</p>
 
-  <div style={{ display: 'flex', gap: '1rem', flexWrap: 'wrap', margin: '1rem 0' }}>
-    {game.hand.map(card => (
-      <CardComponent
-        key={card.id}
-        card={card}
-        selected={game.selected.includes(card.id)}
-        onClick={() => game.toggleSelect(card.id)}
-      />
-    ))}
-  </div>
+  <Hand
+    cards={game.hand}
+    selected={game.selected}
+    onSelect={(card) => game.toggleSelect(card.id)}
+  />
 
   <div style={{ display: 'flex', gap: '1rem', marginTop: '1rem' }}>
     <button onClick={() => game.playHand(jokers.active)}>Jugar mano</button>
