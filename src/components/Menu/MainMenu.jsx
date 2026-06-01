@@ -13,7 +13,7 @@ function MainMenu({ onStart, muted, onToggleMute }) {
   return (
     <div className="main-menu">
       <div className="main-menu__decoration" aria-hidden="true">
-        ♠ ♥ ♦ ♣
+        <span>♠</span><span>♥</span><span>♦</span><span>♣</span>
       </div>
 
       <h1 className="main-menu__title">Not-Balatro</h1>
@@ -41,7 +41,7 @@ function MainMenu({ onStart, muted, onToggleMute }) {
       </button>
 
       <div className="main-menu__decoration" aria-hidden="true">
-        ♣ ♦ ♥ ♠
+        <span>♣</span><span>♦</span><span>♥</span><span>♠</span>
       </div>
 
       <button className="mute-btn" onClick={onToggleMute} title={muted ? 'Activar música' : 'Silenciar'}>
