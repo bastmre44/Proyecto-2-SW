@@ -1,13 +1,8 @@
 .hand {
   display: flex;
-  flex-direction: row;
-  gap: 10px;
   flex-wrap: wrap;
-  justify-content: center;
   align-items: flex-end;
-  padding: 1.5rem 0.5rem;
-}
-
-@media (max-width: 600px) {
-  .hand { gap: 6px; padding: 1rem 0.25rem; }
+  justify-content: center;
+  gap: 12px;
+  padding: 1rem 0;
 }

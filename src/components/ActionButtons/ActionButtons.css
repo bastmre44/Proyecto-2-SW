@@ -1,24 +1,26 @@
 .action-buttons {
   display: flex;
+  flex-direction: row;
   gap: 12px;
-  flex-wrap: wrap;
   justify-content: center;
+  flex-wrap: wrap;
 }
 
 .action-btn {
-  padding: 10px 22px;
-  font-size: 14px;
+  padding: 14px 32px;
+  font-size: 15px;
   font-weight: 700;
   border: none;
-  border-radius: 8px;
+  border-radius: 10px;
   cursor: pointer;
   letter-spacing: 0.5px;
   transition: transform 0.12s ease, opacity 0.2s ease, box-shadow 0.2s ease;
+  min-width: 120px;
 }
 
 .action-btn:hover:not(:disabled) {
-  transform: translateY(-2px);
-  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.35);
+  transform: translateY(-3px);
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.4);
 }
 
 .action-btn:active:not(:disabled) { transform: translateY(0); }
@@ -51,5 +53,5 @@
 }
 
 @media (max-width: 600px) {
-  .action-btn { padding: 9px 14px; font-size: 13px; }
+  .action-btn { padding: 12px 20px; font-size: 14px; min-width: 100px; }
 }

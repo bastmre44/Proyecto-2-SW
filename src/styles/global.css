@@ -24,7 +24,7 @@ html, body, #root {
 
 body {
   font-family: system-ui, 'Segoe UI', Roboto, sans-serif;
-  background: linear-gradient(to top, var(--carbon), var(--carbon2));
+  background: radial-gradient(120% 80% at 50% -10%, #1a0c33 0%, #0c0618 50%, #07030f 100%);
   background-attachment: fixed;
   color: var(--perla);
   -webkit-font-smoothing: antialiased;
@@ -32,6 +32,98 @@ body {
 }
 
 button { font-family: inherit; cursor: pointer; }
+
+/* Contenedor central */
+.container {
+  width: 100%;
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: clamp(20px, 5vw, 72px);
+}
+
+/* ── Pantalla de juego ── */
+.game {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 100vh;
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: clamp(16px, 3vw, 40px) clamp(20px, 5vw, 72px);
+  gap: 0;
+  box-sizing: border-box;
+}
+
+/* Header: ronda | barra | vidas */
+.game-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.game-header__round {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 2px;
+}
+
+.game-header__eyebrow {
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  color: var(--perla-muted);
+  font-family: monospace;
+}
+
+.game-header__round-num {
+  font-size: 32px;
+  font-weight: 900;
+  color: var(--perla);
+  line-height: 1;
+}
+
+/* Cuerpo: cartas (izq/centro) + botones (der) */
+.game-body {
+  display: flex;
+  align-items: flex-end;
+  gap: 24px;
+  flex: 1;
+}
+
+.game-body__main {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+}
+
+.game-body__actions {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  gap: 16px;
+  min-width: 160px;
+}
+
+/* Nombre de la mano detectada */
+.game-hand-name {
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--teal);
+  font-family: monospace;
+}
+
+@media (max-width: 700px) {
+  .game-body { flex-direction: column; align-items: center; }
+  .game-body__actions { flex-direction: row; flex-wrap: wrap; justify-content: center; min-width: unset; }
+}
 
 #root > * {
   animation: screenIn 0.35s ease;

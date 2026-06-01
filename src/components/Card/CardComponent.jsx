@@ -7,17 +7,14 @@ const SUIT_SYMBOLS = {
   spades:   '♠',
 }
 
-const RED_SUITS = ['hearts', 'diamonds']
-
 function CardComponent({ card, selected = false, isSpecial = false, onClick }) {
-  const symbol  = SUIT_SYMBOLS[card.suit]
-  const isRed   = RED_SUITS.includes(card.suit)
+  const symbol = SUIT_SYMBOLS[card.suit]
 
   const classes = [
     'card',
-    isRed      ? 'card--red'      : 'card--black',
-    selected   ? 'card--selected' : '',
-    isSpecial  ? 'card--special'  : '',
+    `card--${card.suit}`,
+    selected  ? 'card--selected' : '',
+    isSpecial ? 'card--special'  : '',
   ].filter(Boolean).join(' ')
 
   return (

@@ -12,13 +12,14 @@ const initialState = {
   screen:       'menu',
   round:        1,
   lives:        MAX_LIVES,
-  score:        0,        // se reinicia cada ronda
+  score:        0,
   targetScore:  0,
   hand:         [],
   selected:     [],
   deck:         [],
   activeJokers: [],
   difficulty:   'normal',
+  handName:     null,
 }
 
 function gameReducer(state, action) {
@@ -66,6 +67,7 @@ function gameReducer(state, action) {
       hand,
       deck,
       selected:    [],
+      handName:    gained.handName,
     }
   }
 
@@ -80,6 +82,7 @@ function gameReducer(state, action) {
       hand,
       deck,
       selected: [],
+      handName: gained.handName,
     }
   }
 
@@ -90,6 +93,7 @@ function gameReducer(state, action) {
     hand,
     deck,
     selected: [],
+    handName: gained.handName,
   }
 }
 
