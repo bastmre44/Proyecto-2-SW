@@ -13,28 +13,40 @@
   border-radius: 8px;
   cursor: pointer;
   letter-spacing: 0.5px;
-  transition: transform 0.1s ease, opacity 0.2s ease, box-shadow 0.2s ease;
+  transition: transform 0.12s ease, opacity 0.2s ease, box-shadow 0.2s ease;
 }
 
 .action-btn:hover:not(:disabled) {
   transform: translateY(-2px);
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.35);
 }
 
 .action-btn:active:not(:disabled) { transform: translateY(0); }
 
 .action-btn:disabled {
-  opacity: 0.35;
+  opacity: 0.3;
   cursor: not-allowed;
 }
 
-.action-btn--play    { background: var(--green);  color: #fff; }
-.action-btn--discard { background: var(--orange); color: #fff; }
-.action-btn--skip    { background: var(--blue);   color: #fff; }
+.action-btn--play {
+  background: var(--teal);
+  color: var(--carbon);
+}
+
+.action-btn--discard {
+  background: var(--malva);
+  color: var(--carbon);
+}
+
+.action-btn--skip {
+  background: transparent;
+  color: var(--teal);
+  border: 1.5px solid var(--teal);
+}
 
 .action-btn--restart {
-  background: var(--bg-card);
-  color: var(--text-secondary);
+  background: transparent;
+  color: var(--perla-muted);
   border: 1px solid var(--border-accent);
 }
 

@@ -1,26 +1,16 @@
-/* Variables del tema */
 :root {
-  --bg-primary:    #0f0f1a;
-  --bg-secondary:  #1a1a2e;
-  --bg-card:       #2e2e4e;
-  --border:        #3a3a5a;
-  --border-accent: #4a4a6a;
-
-  --text-primary:   #ffffff;
-  --text-secondary: #a0a0c0;
-  --text-muted:     #6a6a8a;
-
-  --gold:   #f1c40f;
-  --orange: #e67e22;
-  --red:    #e74c3c;
-  --green:  #2ecc71;
-  --blue:   #3498db;
-  --purple: #9b59b6;
-
-  --font: system-ui, 'Segoe UI', Roboto, sans-serif;
+  --carbon:   #1c1a25;
+  --carbon2:  #2b2836;
+  --panel:    rgba(43, 40, 54, 0.92);
+  --perla:    #dcd6e2;
+  --perla-muted: #9a93ab;
+  --malva:    #b07f9e;
+  --durazno:  #d7a584;
+  --teal:     #7fa3a0;
+  --border:   rgba(220, 214, 226, 0.12);
+  --border-accent: rgba(220, 214, 226, 0.22);
 }
 
-/* Reset base */
 *, *::before, *::after {
   box-sizing: border-box;
   margin: 0;
@@ -30,23 +20,19 @@
 html, body, #root {
   width: 100%;
   min-height: 100vh;
-  margin: 0;
 }
 
 body {
-  font-family: var(--font);
-  background: var(--bg-primary);
-  color: var(--text-primary);
+  font-family: system-ui, 'Segoe UI', Roboto, sans-serif;
+  background: linear-gradient(to top, var(--carbon), var(--carbon2));
+  background-attachment: fixed;
+  color: var(--perla);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-button {
-  font-family: var(--font);
-  cursor: pointer;
-}
+button { font-family: inherit; cursor: pointer; }
 
-/* Transición entre pantallas */
 #root > * {
   animation: screenIn 0.35s ease;
 }

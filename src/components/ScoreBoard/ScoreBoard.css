@@ -3,50 +3,50 @@
   flex-direction: column;
   align-items: center;
   gap: 8px;
-  background: var(--bg-secondary);
-  border: 2px solid var(--border-accent);
+  background: var(--panel);
+  border: 1px solid var(--border-accent);
   border-radius: 12px;
   padding: 16px 24px;
   min-width: 200px;
 }
 
 .scoreboard__round {
-  font-size: 13px;
-  font-weight: 600;
+  font-size: 12px;
+  font-weight: 700;
   letter-spacing: 2px;
   text-transform: uppercase;
-  color: var(--text-secondary);
+  color: var(--perla-muted);
 }
 
 .scoreboard__scores {
   font-size: 28px;
   font-weight: 700;
-  color: var(--text-primary);
+  color: var(--perla);
 }
 
-.scoreboard__current  { color: var(--gold); }
-.scoreboard__separator { color: var(--text-muted); }
-.scoreboard__target   { color: var(--text-primary); }
+.scoreboard__current   { color: var(--durazno); }
+.scoreboard__separator { color: var(--perla-muted); }
+.scoreboard__target    { color: var(--perla); }
 
 .scoreboard__bar-track {
   width: 100%;
-  height: 10px;
-  background: var(--bg-card);
+  height: 8px;
+  background: rgba(220, 214, 226, 0.08);
   border-radius: 999px;
   overflow: hidden;
 }
 
 .scoreboard__bar-fill {
   height: 100%;
-  background: linear-gradient(90deg, var(--gold), var(--orange));
+  background: linear-gradient(90deg, var(--malva), var(--teal));
   border-radius: 999px;
   transition: width 0.4s ease;
 }
 
 .scoreboard__hand-name {
-  font-size: 14px;
+  font-size: 13px;
   font-weight: 700;
-  color: var(--green);
+  color: var(--teal);
   letter-spacing: 1px;
   text-transform: uppercase;
 }

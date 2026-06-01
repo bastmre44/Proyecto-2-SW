@@ -5,15 +5,13 @@
   align-items: center;
   justify-content: center;
   gap: 28px;
-  background: #0f0f1a;
-  color: #fff;
   padding: 2rem;
 }
 
 .main-menu__decoration {
-  font-size: 28px;
+  font-size: 26px;
   letter-spacing: 16px;
-  color: #3a3a5a;
+  color: rgba(220, 214, 226, 0.1);
   user-select: none;
 }
 
@@ -23,11 +21,20 @@
   letter-spacing: 3px;
   margin: 0;
   padding-bottom: 6px;
-  background: linear-gradient(135deg, #f1c40f, #e67e22);
+  line-height: 1.2;
+  background: linear-gradient(135deg, var(--malva), var(--durazno));
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
-  line-height: 1.2;
+}
+
+.main-menu__label {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--perla-muted);
+  margin: 0;
 }
 
 .main-menu__difficulties {
@@ -35,15 +42,6 @@
   flex-direction: column;
   align-items: center;
   gap: 12px;
-}
-
-.main-menu__label {
-  font-size: 12px;
-  font-weight: 700;
-  letter-spacing: 2px;
-  text-transform: uppercase;
-  color: #6a6a8a;
-  margin: 0;
 }
 
 .main-menu__diff-buttons {
@@ -55,45 +53,47 @@
   padding: 10px 24px;
   font-size: 14px;
   font-weight: 600;
-  background: #1a1a2e;
-  color: #a0a0c0;
-  border: 2px solid #3a3a5a;
+  background: transparent;
+  color: var(--perla-muted);
+  border: 1px solid var(--border-accent);
   border-radius: 8px;
   cursor: pointer;
   transition: border-color 0.2s ease, color 0.2s ease, transform 0.15s ease;
 }
 
 .diff-btn:hover {
-  border-color: #f1c40f;
-  color: #fff;
+  border-color: var(--malva);
+  color: var(--perla);
   transform: translateY(-2px);
 }
 
 .diff-btn--active {
-  border-color: #f1c40f;
-  color: #f1c40f;
-  background: #2a2a1e;
+  border-color: var(--malva);
+  color: var(--malva);
+  background: rgba(176, 127, 158, 0.1);
 }
 
 .main-menu__play-btn {
   padding: 16px 60px;
-  font-size: 20px;
-  font-weight: 900;
+  font-size: 18px;
+  font-weight: 800;
   letter-spacing: 1px;
-  background: linear-gradient(135deg, #f1c40f, #e67e22);
-  color: #0f0f1a;
+  background: var(--teal);
+  color: var(--carbon);
   border: none;
   border-radius: 12px;
   cursor: pointer;
   transition: transform 0.15s ease, box-shadow 0.2s ease;
-  box-shadow: 0 4px 20px rgba(241, 196, 15, 0.35);
 }
 
 .main-menu__play-btn:hover {
-  transform: translateY(-3px) scale(1.03);
-  box-shadow: 0 8px 28px rgba(241, 196, 15, 0.5);
+  transform: translateY(-3px);
+  box-shadow: 0 8px 24px rgba(127, 163, 160, 0.35);
 }
 
-.main-menu__play-btn:active {
-  transform: translateY(0) scale(1);
+.main-menu__play-btn:active { transform: translateY(0); }
+
+@media (max-width: 480px) {
+  .main-menu__title { font-size: 40px; }
+  .main-menu__play-btn { padding: 14px 40px; font-size: 16px; }
 }
