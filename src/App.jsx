@@ -6,7 +6,8 @@ import MainMenu       from './components/Menu/MainMenu'
 import GameOverScreen from './components/GameOver/GameOverScreen'
 import Hand           from './components/Hand/Hand'
 import ScoreBoard     from './components/ScoreBoard/ScoreBoard'
-import LivesDisplay   from './components/LivesDisplay/LivesDisplay'
+import LivesDisplay    from './components/LivesDisplay/LivesDisplay'
+import ActionButtons   from './components/ActionButtons/ActionButtons'
 // import GameBoard from './components/Game/GameBoard'
 
 function App() {
@@ -72,19 +73,13 @@ function App() {
     onSelect={(card) => game.toggleSelect(card.id)}
   />
 
-  <div style={{ display: 'flex', gap: '1rem', marginTop: '1rem' }}>
-    <button onClick={() => game.playHand(jokers.active)}>Jugar mano</button>
-    <button onClick={game.discard}>Descartar</button>
-    <button onClick={game.skip}>Skip ronda</button>
-    <button onClick={() => { game.resetGame(); jokers.resetJokers(); tarot.resetTarot() }}>Reiniciar</button>
-
-  </div>
-
-  {game.selected.length > 0 && (
-    <p style={{ marginTop: '1rem', color: 'yellow' }}>
-      Seleccionadas: {game.selected.length} cartas
-    </p>
-  )}
+  <ActionButtons
+    selectedCount={game.selected.length}
+    onPlayHand={() => game.playHand(jokers.active)}
+    onDiscard={game.discard}
+    onSkip={game.skip}
+    onRestart={() => { game.resetGame(); jokers.resetJokers(); tarot.resetTarot() }}
+  />
   {/* Prueba de jokers */}
 <div style={{ marginTop: '1rem', borderTop: '1px solid white', paddingTop: '1rem' }}>
   <p>Jokers activos: {jokers.active.length === 0 ? 'ninguno' : jokers.active.map(j => j.name).join(', ')}</p>
