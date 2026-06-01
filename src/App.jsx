@@ -1,8 +1,8 @@
 import { useEffect, useRef } from 'react'
-import { useGameState } from './hooks/useGameState'
-import { useJokers }    from './hooks/useJokers'
-import { useTarot }     from './hooks/useTarot'
-import { useMusic }     from './hooks/useMusic'
+import { useGameState } from './hooks/game/useGameState'
+import { useJokers }    from './hooks/game/useJokers'
+import { useTarot }     from './hooks/ui/useTarot'
+import { useMusic }     from './hooks/ui/useMusic'
 
 import MainMenu       from './components/Menu/MainMenu'
 import GameOverScreen from './components/GameOver/GameOverScreen'

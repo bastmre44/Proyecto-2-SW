@@ -1,5 +1,5 @@
 import { useState, useCallback } from 'react'
-import { TAROT_CARDS } from '../data/tarotCards.js'
+import { TAROT_CARDS } from '../../data/tarot/tarotCards.js'
 
 // Probabilidad de que aparezca una tarot card al avanzar de ronda
 const TAROT_CHANCE = 0.3  

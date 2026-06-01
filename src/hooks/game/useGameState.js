@@ -1,9 +1,9 @@
 //logica de estado del juego, inicializa partidas, controla rondas, vidas y puntajes, y procesa acciones 
 
 import { useReducer, useCallback } from 'react'
-import { createShuffledDeck, dealHand, replaceCards } from '../utils/deckUtils.js'
-import { calculateScore } from '../utils/scoreCalc.js'
-import { getTargetScore } from '../utils/difficultyUtils.js'
+import { createShuffledDeck, dealHand, replaceCards } from '../../utils/deck/deckUtils.js'
+import { calculateScore } from '../../utils/score/scoreCalc.js'
+import { getTargetScore } from '../../utils/deck/difficultyUtils.js'
 
 const HAND_SIZE = 8
 const MAX_LIVES = 3

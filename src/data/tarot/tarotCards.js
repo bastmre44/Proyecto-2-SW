@@ -4,7 +4,7 @@ export const TAROT_CARDS = [
   {
     id: 'tarot_fool',
     name: 'El Loco',
-    description: 'Resetea las cartas seleccionadas y da una mano nueva gratis',
+    description: 'Mano nueva gratis',
     apply: (gameState) => ({
       ...gameState,
       hand: gameState.freshHand(),
@@ -14,7 +14,7 @@ export const TAROT_CARDS = [
   {
     id: 'tarot_magician',
     name: 'El Mago',
-    description: 'Duplica el valor numérico de las cartas seleccionadas esta ronda',
+    description: 'x2 valor de cartas seleccionadas',
     apply: (gameState) => ({
       ...gameState,
       hand: gameState.hand.map(card =>
@@ -27,7 +27,7 @@ export const TAROT_CARDS = [
   {
     id: 'tarot_wheel',
     name: 'La Rueda de la Fortuna',
-    description: 'Suma 100 puntos al puntaje objetivo (lo hace más fácil de alcanzar)',
+    description: '-100 al objetivo',
     apply: (gameState) => ({
       ...gameState,
       targetScore: gameState.targetScore - 100,
@@ -36,7 +36,7 @@ export const TAROT_CARDS = [
   {
     id: 'tarot_star',
     name: 'La Estrella',
-    description: 'Convierte todas las cartas seleccionadas a diamantes',
+    description: 'Seleccionadas → ♦ diamantes',
     apply: (gameState) => ({
       ...gameState,
       hand: gameState.hand.map(card =>
@@ -49,7 +49,7 @@ export const TAROT_CARDS = [
   {
     id: 'tarot_strength',
     name: 'La Fuerza',
-    description: 'Sube en 1 el valor numérico de todas las cartas en mano',
+    description: '+1 valor a todas las cartas',
     apply: (gameState) => ({
       ...gameState,
       hand: gameState.hand.map(card => ({

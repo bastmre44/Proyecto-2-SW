@@ -1,7 +1,7 @@
 // Administra los jokers activos del jugador y las opciones disponibles para elegir entre rondas.
 
 import { useState, useCallback } from 'react'
-import { JOKERS } from '../data/jokers.js'
+import { JOKERS } from '../../data/cards/jokers.js'
 
 // Devuelve 2 jokers aleatorios distintos del pool completo
 const getRandomJokers = (exclude = []) => {

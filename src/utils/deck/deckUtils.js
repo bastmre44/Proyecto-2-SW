@@ -1,7 +1,7 @@
 // Utilidades para crear, mezclar, repartir y reemplazar cartas del mazo durante la partida.
 
 // Mezcla el mazo utilizando el algoritmo Fisher-Yates.
-import { createDeck } from '../data/deck.js'
+import { createDeck } from '../../data/cards/deck.js'
 
 export const shuffleDeck = (deck) => {
   const shuffled = [...deck]
