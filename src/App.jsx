@@ -4,6 +4,7 @@ import { useTarot }     from './hooks/useTarot'
 
 import MainMenu       from './components/Menu/MainMenu'
 import GameOverScreen from './components/GameOver/GameOverScreen'
+import CardComponent  from './components/Card/CardComponent'
 // import GameBoard from './components/Game/GameBoard'
 
 function App() {
@@ -62,19 +63,12 @@ function App() {
 
   <div style={{ display: 'flex', gap: '1rem', flexWrap: 'wrap', margin: '1rem 0' }}>
     {game.hand.map(card => (
-      <div
+      <CardComponent
         key={card.id}
+        card={card}
+        selected={game.selected.includes(card.id)}
         onClick={() => game.toggleSelect(card.id)}
-        style={{
-          padding: '1rem',
-          border: game.selected.includes(card.id) ? '2px solid yellow' : '2px solid white',
-          borderRadius: '8px',
-          cursor: 'pointer',
-          background: game.selected.includes(card.id) ? '#333' : 'transparent',
-        }}
-      >
-        {card.value} {card.suit[0].toUpperCase()}
-      </div>
+      />
     ))}
   </div>
 

@@ -1,0 +1,100 @@
+.card {
+  position: relative;
+  width: 80px;
+  height: 115px;
+  background: #fff;
+  border-radius: 10px;
+  border: 2px solid #ccc;
+  cursor: pointer;
+  user-select: none;
+  box-sizing: border-box;
+  transition: transform 0.15s ease, box-shadow 0.15s ease, border-color 0.15s ease;
+  flex-shrink: 0;
+}
+
+.card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.35);
+}
+
+/* Colores por palo */
+.card--red  { color: #c0392b; }
+.card--black { color: #1a1a2e; }
+
+/* Estado seleccionado */
+.card--selected {
+  border-color: #f1c40f;
+  box-shadow: 0 0 12px 3px rgba(241, 196, 15, 0.7);
+  transform: translateY(-12px);
+}
+
+.card--selected:hover {
+  transform: translateY(-16px);
+}
+
+/* Estado especial */
+.card--special {
+  border-color: #9b59b6;
+  box-shadow: 0 0 14px 4px rgba(155, 89, 182, 0.6);
+}
+
+.card--special.card--selected {
+  border-color: #f1c40f;
+  box-shadow: 0 0 12px 3px rgba(241, 196, 15, 0.7), 0 0 20px 6px rgba(155, 89, 182, 0.4);
+}
+
+/* Badge especial */
+.card__badge {
+  position: absolute;
+  top: -8px;
+  right: -8px;
+  background: #9b59b6;
+  color: #fff;
+  font-size: 11px;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1;
+}
+
+/* Esquinas — posicionadas absolutas para que siempre queden en su rincón */
+.card__corner {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  line-height: 1;
+  gap: 1px;
+}
+
+.card__corner--top {
+  top: 6px;
+  left: 8px;
+}
+
+.card__corner--bottom {
+  bottom: 6px;
+  right: 8px;
+  transform: rotate(180deg);
+}
+
+.card__value {
+  font-size: 14px;
+  font-weight: 700;
+}
+
+.card__suit {
+  font-size: 11px;
+}
+
+/* Símbolo central */
+.card__center {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 28px;
+}
