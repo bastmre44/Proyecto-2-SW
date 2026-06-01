@@ -1,6 +1,7 @@
 import { useGameState } from './hooks/useGameState'
 import { useJokers }    from './hooks/useJokers'
 import { useTarot }     from './hooks/useTarot'
+import { useMusic }     from './hooks/useMusic'
 
 import MainMenu       from './components/Menu/MainMenu'
 import GameOverScreen from './components/GameOver/GameOverScreen'
@@ -15,9 +16,10 @@ function App() {
   const game   = useGameState()
   const jokers = useJokers()
   const tarot  = useTarot()
+  const { muted, toggleMute } = useMusic(game.screen, game.difficulty)
 
   if (game.screen === 'menu') {
-    return <MainMenu onStart={game.startGame} />
+    return <MainMenu onStart={game.startGame} muted={muted} onToggleMute={toggleMute} />
   }
 
   if (game.screen === 'gameover') {
@@ -33,14 +35,22 @@ function App() {
   return (
     <div className="game">
 
-      {/* Header: ronda | scorebar | vidas */}
+      {/* Header: ronda | scorebar | vidas + mute */}
       <header className="game-header">
         <div className="game-header__round">
           <span className="game-header__eyebrow">Ronda</span>
           <span className="game-header__round-num">{game.round}</span>
         </div>
         <ScoreBoard score={game.score} targetScore={game.targetScore} />
-        <LivesDisplay lives={game.lives} maxLives={3} />
+        <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
+          <LivesDisplay lives={game.lives} maxLives={3} />
+          <button className="mute-btn" onClick={toggleMute} title={muted ? 'Activar música' : 'Silenciar'}>
+            {muted
+              ? <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M11 5L6 9H2v6h4l5 4V5z"/><line x1="23" y1="9" x2="17" y2="15"/><line x1="17" y1="9" x2="23" y2="15"/></svg>
+              : <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M11 5L6 9H2v6h4l5 4V5z"/><path d="M19.07 4.93a10 10 0 0 1 0 14.14M15.54 8.46a5 5 0 0 1 0 7.07"/></svg>
+            }
+          </button>
+        </div>
       </header>
 
       {/* Jokers */}
