@@ -22,7 +22,7 @@ function App() {
   const prevRound = useRef(game.round)
   useEffect(() => {
     if (game.screen === 'playing' && game.round > prevRound.current) {
-      tarot.rollTarot()
+      jokers.offerJokers()
     }
     prevRound.current = game.round
   }, [game.round, game.screen])
@@ -67,7 +67,7 @@ function App() {
         <JokerPanel
           activeJokers={jokers.active}
           pendingJokers={jokers.pending}
-          onPickJoker={(joker) => jokers.chooseJoker(joker.id)}
+          onPickJoker={(joker) => { jokers.chooseJoker(joker.id); tarot.rollTarot() }}
         />
       </div>
 
