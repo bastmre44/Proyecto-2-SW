@@ -1,20 +1,23 @@
-# Not-Balatro 🃏
+# Not-Balatro
 
-Versión simplificada de Balatro desarrollada con React y Vite.
+El objetivo principal del proyecto es practicar y reforzar los conocimientos de React en: manejo de
+componentes, estado, eventos, renderizado condicional, listas dinámicas y separación lógica en archivos
+reutilizables.
+Este proyecto no busca replicar Balatro completo, sino crear una versión simplificada y funcional con
+reglas propias
 
-## Descripción
+## Video Demostrativo 
 
-Juego de cartas estilo póker roguelike donde el jugador debe alcanzar 
-un puntaje objetivo por ronda usando combinaciones de cartas. 
-Al finalizar cada ronda puede elegir jokers que potencian su puntaje.
+https://canva.link/6ypqtneajxti36l
 
 ## Tecnologías
 
 - React
 - Vite
 - JavaScript
+- CSS
 
-## Cómo correr el proyecto
+## Instalación
 
 ```bash
 npm install
@@ -25,45 +28,48 @@ npm run dev
 
 ```
 src/
+├── components/
+│   ├── ActionButtons/
+│   ├── Card/
+│   ├── GameOver/
+│   ├── Hand/
+│   ├── JokerPanel/
+│   ├── LivesDisplay/
+│   ├── Menu/
+│   ├── ScoreBoard/
+│   └── TarotModal/
 ├── data/
-│   ├── deck.js            # 52 cartas de la baraja
-│   ├── jokers.js          # 6 jokers con efectos de puntaje
-│   └── tarotCards.js      # 6 cartas de tarot con efectos especiales
-├── utils/
-│   ├── deckUtils.js       # shuffle, deal y replace de cartas
-│   ├── handEvaluator.js   # detección de combinaciones de póker
-│   ├── scoreCalc.js       # cálculo de puntaje final
-│   └── difficultyUtils.js # escalado de puntaje por dificultad
+│   ├── cards/        
+│   └── tarot/        
 ├── hooks/
-│   ├── useGameState.js    # estado global del juego
-│   ├── useJokers.js       # manejo de jokers activos
-│   └── useTarot.js        # manejo de cartas de tarot
-└── components/
-    ├── Menu/              # pantalla de inicio
-    ├── Game/              # pantalla de juego
-    ├── Tarot/             # modal de tarot
-    └── GameOver/          # pantalla de game over
+│   ├── game/         
+│   └── ui/           
+├── utils/
+│   ├── deck/        
+│   └── score/        
+└── styles/
+    └── global.css
 ```
 
-## Reglas del juego
+## Reglas
 
 - Se reparten 8 cartas por ronda
-- El jugador selecciona cartas para formar combinaciones de póker
-- Cada combinación tiene un puntaje base y un multiplicador
-- Si no se alcanza el puntaje objetivo se pierde una vida
+- El jugador selecciona cartas para formar combinaciones de poker
+- Si no se alcanza el puntaje objetivo se pierde una vida (3 vidas totales)
+- Hay un limite de 3 descartes por ronda
+- Al avanzar de ronda se elige un joker nuevo
 - Con 0 vidas es game over
-- Al avanzar de ronda el jugador elige un joker nuevo
 
-## Combinaciones y puntajes
+## Combinaciones
 
-| Combinación   | Puntaje base | Multiplicador |
+| Combinacion   | Puntaje base | Multiplicador |
 |---------------|-------------|---------------|
 | Escalera Real | 100         | x8            |
-| Póker         | 60          | x7            |
+| Poker         | 60          | x7            |
 | Full House    | 40          | x4            |
 | Flush         | 35          | x4            |
 | Escalera      | 30          | x4            |
-| Trío          | 30          | x3            |
+| Trio          | 30          | x3            |
 | Doble Par     | 20          | x2            |
 | Par           | 10          | x2            |
 | Carta Alta    | 5           | x1            |
@@ -72,28 +78,42 @@ src/
 
 | Dificultad | Puntaje inicial | Incremento por ronda |
 |------------|----------------|----------------------|
-| Fácil      | 100            | +50                  |
-| Normal     | 200            | +100                 |
-| Difícil    | 350            | +175                 |
+| Facil      | 100            |  50                  |
+| Normal     | 200            |  100                 |
+| Dificil    | 350            |  175                 |
 
-## Jokers disponibles
-
-| Joker | Efecto |
-|-------|--------|
-| Multiplicador Loco | x2 al puntaje total |
-| Bonus Fijo | +50 puntos |
-| Rey de Corazones | x1.5 si hay hearts en la mano |
-| La Corte | +15 por cada figura (J, Q, K) |
-| As Supremo | x3 si hay un As en la mano |
-| Coleccionista | +30 por cada par en la mano |
-
-## UI y Diseño
-
-
-## Créditos
-
-- **Mishell Ciprian 231169** — lógica, datos y estado
-- **Adriana** — UI y experiencia visual
-
-## Universidad del Valle de Guatemala
-Sistemas y Tecnologías Web — Semestre 1, 2026
+## Jokers
+ 
+ 
+| Joker              | Efecto                                         |
+|--------------------|------------------------------------------------|
+| Multiplicador Loco | Multiplica el puntaje total x2                 |
+| Bonus Fijo         | Suma 50 puntos al puntaje total                |
+| Rey de Corazones   | x1.5 si hay al menos un corazon en la mano     |
+| La Corte           | +15 puntos por cada figura (J, Q, K)           |
+| As Supremo         | x3 si hay un As en la mano                     |
+| Coleccionista      | +30 puntos por cada par en la mano             |
+ 
+## Cartas de Tarot
+ 
+El jugador puede aplicar su efecto o ignorarla
+ 
+| Carta                  | Efecto                                                |
+|------------------------|-------------------------------------------------------|
+| El Loco                | Reemplaza toda la mano por cartas nuevas              |
+| El Mago                | Duplica el valor numerico de las cartas seleccionadas |
+| La Rueda de la Fortuna | Reduce el puntaje objetivo en 100 puntos              |
+| La Estrella            | Convierte las cartas seleccionadas a diamantes        |
+| La Fuerza              | Sube en 1 el valor numerico de todas las cartas       |
+| El Ermitano            | Recupera una vida perdida                             |
+ 
+## Cartas Especiales
+ 
+Los Ases son cartas especiales mmarcada con una estrella con el borde color dorado
+ 
+## Acciones disponibles
+ 
+- **Play Hand**: juega las cartas seleccionadas y calcula el puntaje
+- **Discard**: descarta las cartas seleccionadas y recibe nuevas (limite de 3 por ronda)
+- **Skip**: avanza a la siguiente ronda sin jugar
+- **Restart**: reinicia la partida desde el menu
