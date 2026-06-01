@@ -5,5 +5,9 @@
   flex-wrap: wrap;
   justify-content: center;
   align-items: flex-end;
-  padding: 1rem 0;
+  padding: 1.5rem 0.5rem;
+}
+
+@media (max-width: 600px) {
+  .hand { gap: 6px; padding: 1rem 0.25rem; }
 }

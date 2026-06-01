@@ -21,32 +21,23 @@
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
 }
 
-.action-btn:active:not(:disabled) {
-  transform: translateY(0);
-}
+.action-btn:active:not(:disabled) { transform: translateY(0); }
 
 .action-btn:disabled {
   opacity: 0.35;
   cursor: not-allowed;
 }
 
-.action-btn--play {
-  background: #2ecc71;
-  color: #fff;
-}
-
-.action-btn--discard {
-  background: #e67e22;
-  color: #fff;
-}
-
-.action-btn--skip {
-  background: #3498db;
-  color: #fff;
-}
+.action-btn--play    { background: var(--green);  color: #fff; }
+.action-btn--discard { background: var(--orange); color: #fff; }
+.action-btn--skip    { background: var(--blue);   color: #fff; }
 
 .action-btn--restart {
-  background: #2e2e4e;
-  color: #a0a0c0;
-  border: 1px solid #4a4a6a;
+  background: var(--bg-card);
+  color: var(--text-secondary);
+  border: 1px solid var(--border-accent);
+}
+
+@media (max-width: 600px) {
+  .action-btn { padding: 9px 14px; font-size: 13px; }
 }
