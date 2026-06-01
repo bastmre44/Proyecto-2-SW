@@ -6,6 +6,9 @@ reutilizables.
 Este proyecto no busca replicar Balatro completo, sino crear una versión simplificada y funcional con
 reglas propias
 
+desarrollado por Mishell Ciprian y Adriana Martinez
+
+
 ## Video Demostrativo 
 
 https://canva.link/6ypqtneajxti36l
