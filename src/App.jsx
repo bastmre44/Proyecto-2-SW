@@ -9,6 +9,7 @@ import ScoreBoard     from './components/ScoreBoard/ScoreBoard'
 import LivesDisplay    from './components/LivesDisplay/LivesDisplay'
 import ActionButtons   from './components/ActionButtons/ActionButtons'
 import JokerPanel      from './components/JokerPanel/JokerPanel'
+import TarotModal      from './components/TarotModal/TarotModal'
 // import GameBoard from './components/Game/GameBoard'
 
 function App() {
@@ -81,11 +82,16 @@ function App() {
     onSkip={game.skip}
     onRestart={() => { game.resetGame(); jokers.resetJokers(); tarot.resetTarot() }}
   />
-  {/* Prueba de jokers */}
   <JokerPanel
     activeJokers={jokers.active}
     pendingJokers={jokers.pending}
     onPickJoker={(joker) => jokers.chooseJoker(joker.id)}
+  />
+
+  <TarotModal
+    tarot={tarot.active}
+    onApply={() => tarot.applyTarot()}
+    onDismiss={tarot.dismissTarot}
   />
 </div>
   )
