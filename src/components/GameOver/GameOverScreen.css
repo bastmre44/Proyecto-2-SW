@@ -1,0 +1,127 @@
+.gameover {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  background: #0f0f1a;
+  color: #fff;
+  padding: 3rem 2rem;
+  animation: fadeIn 0.6s ease;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+.gameover__suits {
+  display: flex;
+  gap: 20px;
+  font-size: 32px;
+  color: #2a2a4a;
+  user-select: none;
+}
+
+.gameover__suits span {
+  animation: floatSuit 3s ease-in-out infinite;
+}
+
+.gameover__suits span:nth-child(2) { animation-delay: 0.4s; }
+.gameover__suits span:nth-child(3) { animation-delay: 0.8s; }
+.gameover__suits span:nth-child(4) { animation-delay: 1.2s; }
+
+@keyframes floatSuit {
+  0%, 100% { transform: translateY(0);   opacity: 0.3; }
+  50%       { transform: translateY(-8px); opacity: 0.6; }
+}
+
+.gameover__suits--bottom {
+  transform: rotate(180deg);
+}
+
+.gameover__content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 36px;
+}
+
+.gameover__title {
+  font-size: 64px;
+  font-weight: 900;
+  margin: 0;
+  letter-spacing: 4px;
+  color: #e74c3c;
+  text-shadow: 0 0 30px rgba(231, 76, 60, 0.5);
+  animation: pulse 2s ease-in-out infinite;
+}
+
+@keyframes pulse {
+  0%, 100% { text-shadow: 0 0 30px rgba(231, 76, 60, 0.5); }
+  50%       { text-shadow: 0 0 50px rgba(231, 76, 60, 0.9); }
+}
+
+.gameover__stats {
+  display: flex;
+  align-items: center;
+  gap: 32px;
+  background: #1a1a2e;
+  border: 2px solid #3a3a5a;
+  border-radius: 16px;
+  padding: 24px 40px;
+}
+
+.gameover__stat {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+}
+
+.gameover__stat-label {
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: #6a6a8a;
+}
+
+.gameover__stat-value {
+  font-size: 42px;
+  font-weight: 800;
+  color: #fff;
+}
+
+.gameover__stat-value--score {
+  color: #f1c40f;
+}
+
+.gameover__divider {
+  width: 1px;
+  height: 60px;
+  background: #3a3a5a;
+}
+
+.gameover__btn {
+  padding: 16px 56px;
+  font-size: 18px;
+  font-weight: 800;
+  background: linear-gradient(135deg, #e74c3c, #c0392b);
+  color: #fff;
+  border: none;
+  border-radius: 12px;
+  cursor: pointer;
+  letter-spacing: 1px;
+  transition: transform 0.15s ease, box-shadow 0.2s ease;
+  box-shadow: 0 4px 20px rgba(231, 76, 60, 0.4);
+}
+
+.gameover__btn:hover {
+  transform: translateY(-3px) scale(1.03);
+  box-shadow: 0 8px 28px rgba(231, 76, 60, 0.6);
+}
+
+.gameover__btn:active {
+  transform: translateY(0) scale(1);
+}
