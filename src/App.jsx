@@ -6,6 +6,7 @@ import MainMenu       from './components/Menu/MainMenu'
 import GameOverScreen from './components/GameOver/GameOverScreen'
 import Hand           from './components/Hand/Hand'
 import ScoreBoard     from './components/ScoreBoard/ScoreBoard'
+import LivesDisplay   from './components/LivesDisplay/LivesDisplay'
 // import GameBoard from './components/Game/GameBoard'
 
 function App() {
@@ -62,7 +63,7 @@ function App() {
     score={game.score}
     targetScore={game.targetScore}
   />
-  <p>Vidas: {game.lives}</p>
+  <LivesDisplay lives={game.lives} maxLives={3} />
   <p>Cartas en mazo: {game.deck.length}</p>
 
   <Hand

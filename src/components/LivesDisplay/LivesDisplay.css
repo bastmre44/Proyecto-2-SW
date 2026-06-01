@@ -1,0 +1,18 @@
+.lives {
+  display: flex;
+  gap: 6px;
+  align-items: center;
+}
+
+.lives__heart {
+  font-size: 28px;
+  transition: transform 0.2s ease, filter 0.2s ease;
+}
+
+.lives__heart--full {
+  filter: drop-shadow(0 0 6px rgba(231, 76, 60, 0.8));
+}
+
+.lives__heart--empty {
+  opacity: 0.35;
+}
