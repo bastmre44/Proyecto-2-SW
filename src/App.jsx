@@ -5,6 +5,7 @@ import { useTarot }     from './hooks/useTarot'
 import MainMenu       from './components/Menu/MainMenu'
 import GameOverScreen from './components/GameOver/GameOverScreen'
 import Hand           from './components/Hand/Hand'
+import ScoreBoard     from './components/ScoreBoard/ScoreBoard'
 // import GameBoard from './components/Game/GameBoard'
 
 function App() {
@@ -56,8 +57,11 @@ function App() {
     // />
 
 <div style={{ padding: '2rem', color: 'white' }}>
-  <h2>Ronda {game.round}</h2>
-  <p>Puntaje: {game.score} / {game.targetScore}</p>
+  <ScoreBoard
+    round={game.round}
+    score={game.score}
+    targetScore={game.targetScore}
+  />
   <p>Vidas: {game.lives}</p>
   <p>Cartas en mazo: {game.deck.length}</p>
 

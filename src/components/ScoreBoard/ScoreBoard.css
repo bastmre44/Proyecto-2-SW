@@ -1,0 +1,62 @@
+.scoreboard {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  background: #1a1a2e;
+  border: 2px solid #4a4a6a;
+  border-radius: 12px;
+  padding: 16px 24px;
+  min-width: 200px;
+}
+
+.scoreboard__round {
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: #a0a0c0;
+}
+
+.scoreboard__scores {
+  font-size: 28px;
+  font-weight: 700;
+  color: #fff;
+}
+
+.scoreboard__current {
+  color: #f1c40f;
+}
+
+.scoreboard__separator {
+  color: #666;
+}
+
+.scoreboard__target {
+  color: #fff;
+}
+
+/* Barra de progreso */
+.scoreboard__bar-track {
+  width: 100%;
+  height: 10px;
+  background: #2e2e4e;
+  border-radius: 999px;
+  overflow: hidden;
+}
+
+.scoreboard__bar-fill {
+  height: 100%;
+  background: linear-gradient(90deg, #f1c40f, #e67e22);
+  border-radius: 999px;
+  transition: width 0.4s ease;
+}
+
+/* Nombre de la combinación */
+.scoreboard__hand-name {
+  font-size: 14px;
+  font-weight: 700;
+  color: #2ecc71;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
