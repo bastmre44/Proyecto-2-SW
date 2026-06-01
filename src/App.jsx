@@ -87,6 +87,7 @@ function App() {
       <div style={{ paddingBottom: '180px' }}>
         <ActionButtons
           selectedCount={game.selected.length}
+          discardsLeft={game.discardsLeft}
           onPlayHand={() => game.playHand(jokers.active)}
           onDiscard={game.discard}
           onSkip={game.skip}
